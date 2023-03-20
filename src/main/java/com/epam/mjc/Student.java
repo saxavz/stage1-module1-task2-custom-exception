@@ -2,6 +2,7 @@ package com.epam.mjc;
 
 
 import java.util.Arrays;
+import java.util.Optional;
 
 public enum Student {
 
@@ -26,11 +27,10 @@ public enum Student {
     this.age = age;
   }
 
-  public static Student getValueOf(long id) {
+  public static Optional<Student> getValueOf(long id) {
     return Arrays.stream(Student.values())
         .filter(student -> id == student.getId())
-        .findFirst()
-        .orElse(null);
+        .findFirst();
   }
 
   public long getId() {
